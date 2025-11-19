@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu</title>
+    <!-- Mengambil Font Estetik -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Efek Latar Belakang (Bintang) */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Tombol Mulai */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: opacity 1s ease;
+        }
+
+        .btn-open {
+            padding: 15px 40px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Kontainer Pesan */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            height: 80vh;
+            overflow-y: auto; /* Bisa discroll jika teks panjang */
+            padding: 30px;
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: left;
+            display: none; /* Disembunyikan dulu */
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Judul */
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.5rem;
+            color: #e94560;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Paragraf */
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            opacity: 0; /* Hilang dulu untuk animasi */
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .highlight {
+            color: #e94560;
+            font-weight: 500;
+        }
+
+        /* Scrollbar cantik */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e94560;
+            border-radius: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Musik Latar (Ganti link mp3 jika mau) -->
+    <!-- Menggunakan link eksternal untuk contoh piano sedih -->
+    <audio id="bgMusic" loop>
+        <source src="lll.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Efek Bintang -->
+    <div class="stars" id="starContainer"></div>
+
+    <!-- Layar Pembuka -->
+    <div class="overlay" id="overlay">
+        <button class="btn-open" onclick="mulai()">💌 Baca Pesan Dariku</button>
+    </div>
+
+    <!-- Isi Pesan -->
+    <div class="container" id="content">
+        <h1>Maaf ya...</h1>
+        
+        <p id="t1">Halo sayang...
+
+Aku mau mulai dengan meminta maaf. Maaf yang tulus, dari hati yang paling dalam. Lewat pesan ini, aku ingin jujur kalau aku butuh sedikit waktu untuk time-out. Bukan untuk menjauhi, tapi untuk bernapas sejenak, merapikan pikiran yang lagi semrawut ini.</b>.</p>
+        
+        <p id="t2">Jujur, aku capek.
+Capek karena terlalu sering excited sendiri, lalu terjatuh dari ekspektasi yang aku bangun setinggi langit. Hehehe. Aku minta maaf kalau selama ini kadang aku terlalu berlebihan ke kamu. Rasanya, baru kali ini aku ketemu orang yang bisa ngasih hampir semua yang aku mau—tapi akunya malah jadi kayak anak kecil yang belum bisa ngontrol rasa.
+
+Tapi di balik itu semua, aku sayang banget sama kamu. Beneran.</p>
+        
+        <p id="t3">Tapi, ada yang pengen aku ungkapin...
+Kadang, yang namanya "nunggu" itu bikin sedih. Aku nggak pernah mau nyalahin kesibukan kita. Kita sama-sama sibuk, dan kita juga LDR. Justru karena itu, aku pengen kita bisa lebih saling mengerti. Jangan sampai hal-hal kecil disepelekan. Karena bagiku, hal kecil justru yang bikin hubungan itu berasa.</b> ke kamu. Maaf ya...</p>
+        
+        <p id="t4">Oya, kalau mau main sama temen, gapapa kok. Aku nggak marah. Cuma... inget ya, kamu punya aku. Aku cuma mau kita saling jaga perasaan.</p>
+        
+        <p id="t5">Aku bersyukur banget...
+Bisa kenal kamu adalah salah satu hal terbaik yang pernah terjadi. Tapi, aku rasa kita masih perlu belajar untuk lebih memahami satu sama lain. Belajar untuk gak menyepelekan hal-hal yang mungkin kecil di mata, tapi besar di hati.
+
+Maaf ya, kalau selama ini aku suka marah atau bikin kamu kesal.
+Maaf banget, sayang.<b>jangan menyepelekan hal-hal kecil</b>.</p>
+        
+        <p id="t6">Aku akan off dulu sebentar. Mungkin nanti ketika aku kembali online, semoga kita berdua udah lebih tenang, dan hubungan kita bisa lebih baik lagi.
+
+Aku sayang kamu. Benar-benar.: <span class="highlight">inget kamu punya pacar</span>.</p>
+        
+        
+        <div class="footer">
+            <small>Love you, but I need space.</small>
+        </div>
+    </div>
+
+    <script>
+        // Script untuk membuat bintang background
+        const starContainer = document.getElementById('starContainer');
+        for(let i=0; i<100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            starContainer.appendChild(star);
+        }
+
+        // Fungsi saat tombol diklik
+        function mulai() {
+            // Putar Musik
+            var audio = document.getElementById("bgMusic");
+            audio.volume = 0.6; // Volume 60%
+            audio.play();
+
+            // Hilangkan tombol pembuka
+            document.getElementById("overlay").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("overlay").style.display = "none";
+                
+                // Tampilkan Container
+                var content = document.getElementById("content");
+                content.style.display = "block";
+                
+                // Sedikit delay agar transisi smooth
+                setTimeout(() => {
+                    content.style.opacity = "1";
+                    munculkanTeks();
+                }, 100);
+            }, 1000);
+        }
+
+        // Fungsi animasi teks muncul satu per satu
+        function munculkanTeks() {
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach((p, index) => {
+                setTimeout(() => {
+                    p.style.opacity = "1";
+                    p.style.transform = "translateY(0)";
+                    
+                    // Auto scroll ke bawah jika teks panjang
+                    p.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }, index * 2500); // Muncul setiap 2.5 detik
+            });
+        }
+    </script>
+</body>
+</html>
